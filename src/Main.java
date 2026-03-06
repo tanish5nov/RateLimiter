@@ -1,6 +1,9 @@
 import RateLimiter.RateLimiter;
 import RateLimiter.TokenBucket.TokenBucketRateLimiter;
 import Request.Request;
+import Server.Server;
+import Server.Server1;
+import Server.Server2;
 import User.User;
 
 import java.util.Scanner;
@@ -28,6 +31,8 @@ public class Main {
 //            JsonObject jsonContentRequest2 = Json.createReader(new StringReader(rq2)).readObject();
 //            JsonObject jsonContentRequest3 = Json.createReader(new StringReader(rq3)).readObject();
 
+            Server server1 = Server1.getInstance();
+            Server server2 = Server2.getInstance();
             Request request1 = new Request(user1, rq1);
             Request request2 = new Request(user2, rq2);
             Request request3 = new Request(user3, rq3);

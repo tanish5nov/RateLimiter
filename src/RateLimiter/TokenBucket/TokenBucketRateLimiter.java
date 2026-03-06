@@ -2,7 +2,7 @@ package RateLimiter.TokenBucket;
 
 import RateLimiter.RateLimiter;
 import Request.Request;
-import Server.Server;
+import Server.LoadBalancer;
 import User.User;
 
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class TokenBucketRateLimiter implements RateLimiter {
             User user = request.getUser();
             if(bucket.containsKey(user) && bucket.get(user) > 0) {
                 bucket.put(user, bucket.get(user) - 1);
-                Server.handleRequest(request);
+                LoadBalancer.handleRequest(request);
             } else {
                 System.out.println("Dropped Request : " + request.toString());
             }
